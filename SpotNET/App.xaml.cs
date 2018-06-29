@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpotNET.View;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace SpotNET
     /// </summary>
     public partial class App : Application
     {
+        public void OnStartup(object sender, StartupEventArgs e)
+        {
+            MainView main = new MainView();
+            main.Show();
+        }
     }
 }
