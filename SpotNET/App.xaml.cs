@@ -16,7 +16,7 @@ namespace SpotNET
     {
         public void OnStartup(object sender, StartupEventArgs e)
         {
-            MainView main = new MainView();
+            DirectCtrlView main = new DirectCtrlView();
             main.Show();
         }
     }

@@ -17,9 +17,9 @@ namespace SpotNET.View
     /// <summary>
     /// Interaktionslogik für MainView.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class DirectCtrlView : Window
     {
-        public MainView()
+        public DirectCtrlView()
         {
             InitializeComponent();
         }
