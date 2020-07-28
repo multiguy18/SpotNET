@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hp="clr-namespace:SpotNET.Helpers"
         xmlns:local="clr-namespace:SpotNET.View"
         mc:Ignorable="d"
         Title="Direct Control" Height="450" Width="800">
@@ -19,7 +20,26 @@
                 </ListBox.ContextMenu>
             </ListBox>
             <ScrollViewer Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Hidden" >
-                <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="409">
+                <ItemsControl ItemsSource="{Binding Sliders, Mode=TwoWay}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid hp:GridHelpers.ColumnCount="{Binding ColumnCount, Mode=OneWay}" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Grid.Column" Value="{Binding ColumnIndex}"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type Slider}">
+                            <Slider Value="{Binding Value, Mode=TwoWay}" Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="34,10,34,29" Maximum="255" SmallChange="1" LargeChange="10"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+
+                <!--<Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="409">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -74,7 +94,7 @@
                     <Label Content="14" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="13"/>
                     <Label Content="15" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="14"/>
                     <Label Content="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="15"/>
-                </Grid>
+                </Grid>-->
             </ScrollViewer>
 
         </DockPanel>

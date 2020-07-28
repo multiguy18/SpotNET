@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpotNET.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace SpotNET.View
         public DirectCtrlView()
         {
             InitializeComponent();
+            DataContext = new DirectCtrlViewModel();
         }
     }
 }

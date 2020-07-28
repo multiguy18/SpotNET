@@ -1,6 +1,8 @@
-﻿using SpotNET.MVVM;
+﻿using SpotNET.Model;
+using SpotNET.MVVM;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,43 +13,25 @@ namespace SpotNET.ViewModel
     {
         private byte[] dimmers = new byte[16];
 
-        public byte Dimmer1
-        {
-            get
-            {
-                return dimmers[0];
-            }
-            set
-            {
-                dimmers[0] = value;
-                RaisePropertyChanged("Dimmer1");
+        public ObservableCollection<SliderData<byte>> Sliders { get; set; }
+
+        private int _columnCount;
+        public int ColumnCount
+        { 
+            get { return _columnCount; } 
+            set {
+                SetProperty(ref _columnCount, value);
             }
         }
 
-        public byte Dimmer2
+        public DirectCtrlViewModel()
         {
-            get
+            Sliders = new ObservableCollection<SliderData<byte>>();
+            for (int i = 0; i < 256; i++)
             {
-                return dimmers[1];
+                Sliders.Add(new SliderData<byte> { Label = i.ToString(), Value = 0, ColumnIndex = i });
             }
-            set
-            {
-                dimmers[1] = value;
-                RaisePropertyChanged("Dimmer2");
-            }
-        }
-
-        public byte Dimmer3
-        {
-            get
-            {
-                return dimmers[2];
-            }
-            set
-            {
-                dimmers[2] = value;
-                RaisePropertyChanged("Dimmer3");
-            }
+            ColumnCount = Sliders.Count;
         }
     }
 }
