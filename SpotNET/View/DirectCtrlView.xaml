@@ -9,7 +9,7 @@
         Title="Direct Control" Height="450" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
-            <ListBox Width="150" DockPanel.Dock="Left">
+            <ListBox ItemsSource="{Binding Patches, Mode=TwoWay}" Width="150" DockPanel.Dock="Left">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="New single patch..."/>

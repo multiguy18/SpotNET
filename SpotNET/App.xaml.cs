@@ -1,4 +1,5 @@
-﻿using SpotNET.View;
+﻿using SpotNET.Model;
+using SpotNET.View;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,9 +15,12 @@ namespace SpotNET
     /// </summary>
     public partial class App : Application
     {
+        public DMXUniverse universe1 = new DMXUniverse();
+
+        [STAThread]
         public void OnStartup(object sender, StartupEventArgs e)
         {
-            DirectCtrlView main = new DirectCtrlView();
+            DirectCtrlView main = new DirectCtrlView(universe1);
             main.Show();
         }
     }

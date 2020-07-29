@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpotNET.Model
 {
-    public class SliderData<T>
+    public class DirectCtrlSliderData<T>
     {
         public string Label { get; set; }
         public T Value { get; set; }

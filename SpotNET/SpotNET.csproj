@@ -63,7 +63,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\GridHelpers.cs" />
-    <Compile Include="Model\SliderData.cs" />
+    <Compile Include="Model\DirectCtrlSliderData.cs" />
+    <Compile Include="Model\DMXUniverse.cs" />
     <Compile Include="MVVM\DelegateCommand.cs" />
     <Compile Include="MVVM\ObservableObject.cs" />
     <Compile Include="ViewModel\DirectCtrlViewModel.cs" />

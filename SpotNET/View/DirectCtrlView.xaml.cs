@@ -1,4 +1,5 @@
-﻿using SpotNET.ViewModel;
+﻿using SpotNET.Model;
+using SpotNET.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,10 @@ namespace SpotNET.View
     /// </summary>
     public partial class DirectCtrlView : Window
     {
-        public DirectCtrlView()
+        public DirectCtrlView(DMXUniverse universe)
         {
             InitializeComponent();
-            DataContext = new DirectCtrlViewModel();
+            DataContext = new DirectCtrlViewModel(universe);
         }
     }
 }
